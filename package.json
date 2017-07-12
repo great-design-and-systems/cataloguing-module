@@ -7,11 +7,13 @@
   "author": "Analyn Flores",
   "license": "MIT",
   "dependencies": {
-    "gds-stack": "^0.1.4"
+    "gds-stack": "^0.1.5",
+    "mongoose": "^4.11.1"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-preset-es2015": "^6.24.1",
+    "nodemon": "^1.11.0",
     "rimraf": "^2.6.1"
   },
   "scripts": {
