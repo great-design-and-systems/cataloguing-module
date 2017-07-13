@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import Subject from './Subject';
 
 const BookSchema = mongoose.Schema({
     title : {
@@ -16,6 +17,7 @@ const BookSchema = mongoose.Schema({
         type: String,
         required: [true, 'Author is required.']
     },
+    subject: [{type: mongoose.Schema.Types.ObjectId, ref: Subject.modelName}],
     lccn: String,
     publishedDate: Date,
     summary: String,
