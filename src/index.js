@@ -1,7 +1,7 @@
 import { DatabaseChains, ExpressApp, Logger, LoggerChains, ServerChains } from 'gds-stack';
 
 import { ExecuteChain } from 'fluid-chains';
-//import { SchoolResource } from './boundary/';
+import { BookResource } from './boundary/';
 
 const PORT = process.env.PORT || 5000;
 const DB = process.env.DB || 'cataloguing-module-db';
@@ -29,7 +29,7 @@ ExecuteChain([
         if (!result.$err) {
             Logger('Cataloguing').info(`Server is connected in port ${PORT}`);
             ExpressApp.get('/api', (req, res) => {
-                res.status(200).send('SUCCESS!!!');
+                res.status(200).send(BookResource.getDTO(req));
             });
         }
     });

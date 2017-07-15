@@ -1,4 +1,6 @@
 import mongoose from 'mongoose';
+import {Schema} from 'mongoose';
+import mongoosePaginate from 'mongoose-paginate';
 import Subject from './Subject';
 
 const BookSchema = mongoose.Schema({
@@ -17,7 +19,7 @@ const BookSchema = mongoose.Schema({
         type: String,
         required: [true, 'Author is required.']
     },
-    subject: [{type: mongoose.Schema.Types.ObjectId, ref: Subject.modelName}],
+    subject: [{type: Schema.Types.ObjectId, ref: Subject.modelName}],
     lccn: String,
     publishedDate: Date,
     summary: String,
@@ -39,6 +41,8 @@ const BookSchema = mongoose.Schema({
 }, {
     timestamps: true
 });
+
+BookSchema.plugin(mongoosePaginate);
 
 const Book = mongoose.model('book', BookSchema);
 export default Book;
