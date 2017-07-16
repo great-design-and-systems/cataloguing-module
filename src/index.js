@@ -1,4 +1,4 @@
-import { DatabaseChains, ExpressApp, Logger, LoggerChains, ServerChains } from 'gds-stack';
+import { DatabaseChains, ExpressApp, Logger, LoggerChains, ServerChains, GDSDomainResource } from 'gds-stack';
 import { ExecuteChain } from 'fluid-chains';
 import { BookResource } from './boundary/';
 
