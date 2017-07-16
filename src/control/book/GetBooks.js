@@ -4,9 +4,12 @@ import { GET_BOOKS } from './Chain.info';
 import { Book } from '../../entity/';
 
 const Action = (context, param, next) => {
-    Book.paginate(param.query(), {
-      page: param.page(),
-      limit: param.limit(),
+    const query = param.query ? param.query() : {};
+    const page = param.page();
+    const limit = param.limit();
+    Book.paginate(query, {
+      page: page ? parseInt(page) : 1,
+      limit: limit ? parseInt(limit) : 10,
       sort: param.sort()
     }, (err, result) => {
         context.set('books', result);

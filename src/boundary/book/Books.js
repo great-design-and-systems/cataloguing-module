@@ -1,11 +1,11 @@
 import { CREATE_BOOK, UPDATE_BOOK, DELETE_BOOK, GET_BOOKS } from './Chain.info';
 import { Chain, ExecuteChain } from 'fluid-chains';
 import { GDSDomainDTO } from 'gds-stack';
-import { Book } from '../../control/'
+import { Book, Subject } from '../../control/'
 
 const createBookChain = new Chain(CREATE_BOOK, (context, param, next) => {
   const book = param.bookData();
-  ExecuteChain(Book.CREATE_BOOK, {
+  ExecuteChain([Book.CREATE_BOOK], {
       title : book.title,
       statementOfResponsibility: book.statementOfResponsibility,
       seriesTitle: book.seriesTitle,

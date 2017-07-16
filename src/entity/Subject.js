@@ -1,9 +1,9 @@
 import mongoose from 'mongoose';
 
 const SubjectSchema = mongoose.Schema({
-    subjectName: {
+    subjectType: {
         type: String,
-        required: [true, 'Subject is required.']
+        required: [true, 'Subject Type is required.']
     },
     source: String,
     personalName: String,

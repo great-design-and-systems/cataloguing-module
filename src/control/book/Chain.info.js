@@ -1,7 +1,7 @@
-const CREATE_BOOK = 'CreateBook';
-const GET_BOOKS = 'GetBooks';
-const DELETE_BOOK = 'DeleteBook';
-const UPDATE_BOOK = 'UpdateBook';
+const CREATE_BOOK = 'control.CreateBook';
+const GET_BOOKS = 'control.GetBooks';
+const DELETE_BOOK = 'control.DeleteBook';
+const UPDATE_BOOK = 'control.UpdateBook';
 
 module.exports = {
     CREATE_BOOK,
