@@ -1,5 +1,4 @@
 import { DatabaseChains, ExpressApp, Logger, LoggerChains, ServerChains } from 'gds-stack';
-
 import { ExecuteChain } from 'fluid-chains';
 import { BookResource } from './boundary/';
 
@@ -28,6 +27,8 @@ ExecuteChain([
     }, (result) => {
         if (!result.$err) {
             Logger('Cataloguing').info(`Server is connected in port ${PORT}`);
+            const resource = new GDSDomainResource(ExpressApp, 'api');
+            new BookResource(resource);
             ExpressApp.get('/api', (req, res) => {
                 res.status(200).send(BookResource.getDTO(req));
             });
