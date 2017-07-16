@@ -28,9 +28,9 @@ ExecuteChain([
         if (!result.$err) {
             Logger('Cataloguing').info(`Server is connected in port ${PORT}`);
             const resource = new GDSDomainResource(ExpressApp, 'api');
-            const bookResource = new BookResource(resource);
+            new BookResource(resource);
             ExpressApp.get('/api', (req, res) => {
-                res.status(200).send(bookResource.getDTO(req));
+                res.status(200).send(resource.getDTO(req));
             });
         }
     });
