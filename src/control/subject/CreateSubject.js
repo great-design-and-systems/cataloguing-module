@@ -5,18 +5,11 @@ import { Subject } from '../../entity/';
 
 const Action = (context, param, next) => {
     Subject.create({
-        subjectType: param.subjectType(),
-        source: param.source(),
-        personalName: param.personalName(),
-        dates: param.dates(),
-        fullName: param.fullName(),
-        workTitle: param.workTitle(),
-        formSubdivision: param.formSubdivision(),
-        generalSubdivision: param.generalSubdivision(),
-        chronologicalSubdivision: param.chronologicalSubdivision(),
-        georaphicSubdivision: param.georaphicSubdivision()
+        field: param.subjectField(),
+        value: param.subjectValue()
     }, (err, result) => {
         context.set('subjectId', result._id);
+        console.log(err);
         next(err);
     });
 }
@@ -24,13 +17,5 @@ const Action = (context, param, next) => {
 const CreateSubject = new Chain(CREATE_SUBJECT,
     Action, undefined, CATALOG_ERROR_HANDLER);
 
-CreateSubject.addSpec('subjectType', true);
-CreateSubject.addSpec('source', false);
-CreateSubject.addSpec('personalName', false);
-CreateSubject.addSpec('dates', false);
-CreateSubject.addSpec('fullName', false);
-CreateSubject.addSpec('workTitle', false);
-CreateSubject.addSpec('formSubdivision', false);
-CreateSubject.addSpec('generalSubdivision', false);
-CreateSubject.addSpec('chronologicalSubdivision', false);
-CreateSubject.addSpec('georaphicSubdivision', false);
+CreateSubject.addSpec('subjectField', true);
+CreateSubject.addSpec('subjectValue', true);

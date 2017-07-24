@@ -1,19 +1,12 @@
 import mongoose from 'mongoose';
 
 const SubjectSchema = mongoose.Schema({
-    subjectType: {
+   field: String, 
+   value: {
         type: String,
-        required: [true, 'Subject Type is required.']
-    },
-    source: String,
-    personalName: String,
-    dates: String,
-    fullName: String,
-    workTitle: String,
-    formSubdivision: String,
-    generalSubdivision: String,
-    chronologicalSubdivision: String,
-    georaphicSubdivision: String
+        required: [true, 'Subject is required.'],
+        unique: true
+    }
 }, {
     timestamps: true
 });

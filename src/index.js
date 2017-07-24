@@ -1,6 +1,6 @@
 import { DatabaseChains, ExpressApp, Logger, LoggerChains, ServerChains, GDSDomainResource } from 'gds-stack';
 import { ExecuteChain } from 'fluid-chains';
-import { BookResource } from './boundary/';
+import { BookResource, SubjectResource } from './boundary/';
 
 const PORT = process.env.PORT || 5000;
 const DB = process.env.DB || 'cataloguing-module-db';
@@ -29,6 +29,7 @@ ExecuteChain([
             Logger('Cataloguing').info(`Server is connected in port ${PORT}`);
             const resource = new GDSDomainResource(ExpressApp, 'api');
             new BookResource(resource);
+            new SubjectResource(resource);
             ExpressApp.get('/api', (req, res) => {
                 res.status(200).send(resource.getDTO(req));
             });

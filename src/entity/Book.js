@@ -19,7 +19,7 @@ const BookSchema = mongoose.Schema({
         type: String,
         required: [true, 'Author is required.']
     },
-    subject: [{type: Schema.Types.ObjectId, ref: Subject.modelName}],
+    subject: [String],
     lccn: String,
     publishedDate: Date,
     summary: String,

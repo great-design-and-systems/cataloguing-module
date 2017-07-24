@@ -1,11 +1,34 @@
 import { CREATE_BOOK, UPDATE_BOOK, DELETE_BOOK, GET_BOOKS } from './Chain.info';
 import { Chain, ExecuteChain } from 'fluid-chains';
 import { GDSDomainDTO } from 'gds-stack';
-import { Book, Subject } from '../../control/'
+import { Book, Subject } from '../../control/';
 
 const createBookChain = new Chain(CREATE_BOOK, (context, param, next) => {
   const book = param.bookData();
-  ExecuteChain([Book.CREATE_BOOK], {
+  // Save Subject
+  if (book.subject) {
+    book.subject.forEach(subject => {
+      var subjectArr = subject.split(/(\$.)/);
+      console.log(subjectArr);
+      var data = {};
+      for (var i=0; i<subjectArr.length; i++) {
+        if (subjectArr[i].includes('$')) {
+          data.field = subjectArr[i];
+          data.value = subjectArr[++i];
+          console.log(data);
+          ExecuteChain(Subject.CREATE_SUBJECT, {
+            subjectField: data.field,
+            subjectValue: data.value,
+          }, result => {
+            console.log(result.subjectId());
+          });
+          
+        }
+      }
+    });
+  }
+  // Save Book
+  ExecuteChain(Book.CREATE_BOOK, {
       title : book.title,
       statementOfResponsibility: book.statementOfResponsibility,
       seriesTitle: book.seriesTitle,
