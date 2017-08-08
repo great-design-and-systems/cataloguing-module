@@ -5,9 +5,16 @@ const SettingsSchema = mongoose.Schema({
         type: String,
         required: [true, 'School Id is required.']
     },
+    libraryId: {
+        type: String,
+        required: [true, 'Library Id is required.']
+    },
     funds: [String],
     currencies: [String],
-    resourceTypes: [String]
+    resourceTypes: [{
+        label: String,
+        value: String
+    }]
 }, {
         timestamps: true
     });
