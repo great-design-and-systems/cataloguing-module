@@ -7,7 +7,7 @@ const Action = (context, param, next) => {
     Settings.create({
         schoolId: param.schoolId(),
         libraryId: param.libraryId(),
-        funds: param.fund(),
+        funds: param.funds(),
         currencies: param.currencies(),
         resourceTypes: param.resourceTypes()
     }, (err, result) => {

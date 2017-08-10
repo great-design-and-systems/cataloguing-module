@@ -7,9 +7,9 @@
   "author": "Analyn Flores",
   "license": "MIT",
   "dependencies": {
-    "fluid-chains": "^0.5.6",
+    "fluid-chains": "^0.5.9",
     "gds-config": "^0.2.7",
-    "gds-stack": "^0.1.5",
+    "gds-stack": "^0.1.7",
     "mongoose": "^4.11.1",
     "mongoose-paginate": "^5.0.3"
   },

@@ -9,7 +9,7 @@ const createSettingsChain = new Chain(CREATE_SETTINGS, (context, param, next) =>
   ExecuteChain(Settings.CREATE_SETTINGS, {
     schoolId: settings.schoolId,
     libraryId: settings.libraryId,
-    funds: settings.fund,
+    funds: settings.funds,
     currencies: settings.currencies,
     resourceTypes: settings.resourceTypes
   }, result => {
