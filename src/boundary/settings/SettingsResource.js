@@ -21,10 +21,9 @@ export default class SettingsResource {
             });
         });
 
-        resource.get(Chain.GET_SETTINGS, 'settings/get-settings/:schoolId/:libraryId', (req, res) => {
+        resource.get(Chain.GET_SETTINGS, 'settings/get-settings', (req, res) => {
             ExecuteChain(Chain.GET_SETTINGS, {
-                schoolId: req.params.schoolId,
-                libraryId: req.params.libraryId,
+                query: req.query
             }, result => {
                 res.status(result.status()).send(result.dto());
             });

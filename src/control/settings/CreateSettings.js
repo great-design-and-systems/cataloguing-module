@@ -21,7 +21,7 @@ const CreateSettings = new Chain(CREATE_SETTINGS,
     Action, undefined, CATALOG_ERROR_HANDLER);
 
 CreateSettings.addSpec('schoolId', true);
-CreateSettings.addSpec('libraryId', true);
+CreateSettings.addSpec('libraryId', false);
 CreateSettings.addSpec('funds', false);
 CreateSettings.addSpec('currencies', false);
 CreateSettings.addSpec('resourceTypes', false);

@@ -48,9 +48,9 @@ updateSettingsChain.addSpec('settingsId', true);
 updateSettingsChain.addSpec('inputData', true);
 
 const getSettingsChain = new Chain(GET_SETTINGS, (context, param, next) => {
+  const query = param.query ? param.query() : {};
   ExecuteChain(Settings.GET_SETTINGS, {
-      schoolId: param.schoolId(),
-      libraryId: param.libraryId()
+      query: query
   }, result => {
     if (result.$err) {
       context.set('status', 500);
@@ -63,5 +63,4 @@ const getSettingsChain = new Chain(GET_SETTINGS, (context, param, next) => {
     }
   });
 });
-getSettingsChain.addSpec('schoolId', true);
-getSettingsChain.addSpec('libraryId', true);
+getSettingsChain.addSpec('query', true);
