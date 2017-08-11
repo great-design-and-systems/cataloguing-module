@@ -1,6 +1,7 @@
 import { BookChains, BookResource } from './book/';
 import { SubjectChains, SubjectResource } from './subject/';
 import { SettingsChains, SettingsResource } from './settings/';
+import { SearchChains, SearchResource } from './search/';
 
 module.exports = {
   BookChains,
@@ -8,5 +9,7 @@ module.exports = {
   SubjectChains,
   SubjectResource,
   SettingsChains,
-  SettingsResource
+  SettingsResource,
+  SearchChains,
+  SearchResource
 };

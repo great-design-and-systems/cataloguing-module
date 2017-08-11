@@ -1,6 +1,6 @@
 import { DatabaseChains, ExpressApp, Logger, LoggerChains, ServerChains, GDSDomainResource } from 'gds-stack';
 import { ExecuteChain } from 'fluid-chains';
-import { BookResource, SubjectResource, SettingsResource } from './boundary/';
+import { BookResource, SubjectResource, SettingsResource, SearchResource } from './boundary/';
 
 const PORT = process.env.PORT || 5000;
 const DB = process.env.DB || 'cataloguing-module-db';
@@ -31,6 +31,7 @@ ExecuteChain([
             new BookResource(resource);
             new SubjectResource(resource);
             new SettingsResource(resource);
+            new SearchResource(resource);
             ExpressApp.get('/api', (req, res) => {
                 res.status(200).send(resource.getDTO(req));
             });
