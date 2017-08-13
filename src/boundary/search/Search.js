@@ -7,9 +7,9 @@ const searchOnlineChain = new Chain(SEARCH_ONLINE, (context, param, next) => {
   const query = param.query ? param.query() : {};
   ExecuteChain([
     Search.GENERATE_URL,
-    Search.SET_TIMEOUT,
     Search.SET_PROXY,
-    Search.GET_RESULT], {
+    Search.SET_TIMEOUT,
+    Search.GET_RESPONSE], {
       source: param.source(),
       query: query
     }, result => {
