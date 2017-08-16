@@ -11,6 +11,7 @@ import GenerateUrl from './search/GenerateUrl';
 import SetTimeout from './search/SetTimeout';
 import SetProxy from './search/SetProxy';
 import GetResponse from './search/GetResponse';
+import ReturnJson from './search/ReturnJson';
 import CatalogErrorHandler from './util/CatalogErrorHandler';
 import Book from './book/Chain.info';
 import Subject from './subject/Chain.info';

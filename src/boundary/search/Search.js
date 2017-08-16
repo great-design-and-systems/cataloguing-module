@@ -9,7 +9,8 @@ const searchOnlineChain = new Chain(SEARCH_ONLINE, (context, param, next) => {
     Search.GENERATE_URL,
     Search.SET_PROXY,
     Search.SET_TIMEOUT,
-    Search.GET_RESPONSE], {
+    Search.GET_RESPONSE,
+    Search.RETURN_JSON], {
       source: param.source(),
       query: query
     }, result => {
