@@ -18,11 +18,13 @@ import Subject from './subject/Chain.info';
 import Util from './util/Chain.info';
 import Settings from './settings/Chain.info';
 import Search from './search/Chain.info';
+import Permission from './permission/Chain.info';
 
 module.exports = {
     Book,
     Subject,
     Util,
     Settings,
-    Search
+    Search,
+    Permission
 }
