@@ -11,8 +11,8 @@ const PermissionSchema = mongoose.Schema({
         enum: ['ADMIN', 'LIBRARIAN', 'PERSONNEL', 'STUDENTS'],
         required: [true, 'Permission Type is required']
     },
-    librayId: [String],
-    schoolId: [String]
+    libraryId: String,
+    schoolId: String
 }, {
         timestamps: true
     });

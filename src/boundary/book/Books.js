@@ -1,7 +1,8 @@
 import { CREATE_BOOK, UPDATE_BOOK, DELETE_BOOK, GET_BOOKS } from './Chain.info';
 import { Chain, ExecuteChain } from 'fluid-chains';
 import { GDSDomainDTO } from 'gds-stack';
-import { Book, Subject } from '../../control/';
+import { Book, Subject, Util } from '../../control/';
+import * as Entity from '../../entity/';
 
 const createBookChain = new Chain(CREATE_BOOK, (context, param, next) => {
   const book = param.bookData();
